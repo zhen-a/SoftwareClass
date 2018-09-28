@@ -106,48 +106,7 @@ using namespace std;
 
 接着，再添加以下代码：
 
-```c++
-int main()
-{
-    GDALDataset* poSrcDS;
-    GDALDataset* poDstDS;
-    int imgXlen, imgYlen;
-    char* srcPath = "trees.jpg";
-	char* dstPath = "res.tif";
-	GByte* buffTmp;
-	int i, bandNum;
-
-    GDALAllRegister();
-
-    poSrcDS = (GDALDataset*)GDALOpenShared(srcPath, GA_ReadOnly);
-
-    imgXlen = poSrcDS->GetRasterXSize();
-    imgYlen = poSrcDS->GetRasterYSize();
-	bandNum = poSrcDS->GetRasterCount();
-
-    cout << " Image X Length: " << imgXlen << endl;
-    cout << " Image Y Length: " << imgYlen << endl;
-	cout << " Band number :   " << bandNum << endl;
-
-	buffTmp = (GByte*)CPLMalloc(imgXlen*imgYlen*sizeof(GByte));
-
-	poDstDS = GetGDALDriverManager()->GetDriverByName("GTiff")->Create(dstPath, imgXlen, imgYlen, bandNum, GDT_Byte, NULL);
-	
-	for (i = 0; i < bandNum; i++)
-	{
-		poSrcDS->GetRasterBand(i+1)->RasterIO(GF_Read, 0, 0, imgXlen, imgYlen, buffTmp, imgXlen, imgYlen, GDT_Byte, 0, 0);
-		poDstDS->GetRasterBand(i+1)->RasterIO(GF_Write, 0, 0, imgXlen, imgYlen, buffTmp, imgXlen, imgYlen, GDT_Byte, 0, 0);
-		printf(" ... ... band %d processing ... ...\n", i);
-	}
-
-	CPLFree(buffTmp);
-	GDALClose(poDstDS);
-	GDALClose(poSrcDS);
-
-	system("PAUSE");
-    return 0;
-}
-```
+![](http://ww1.sinaimg.cn/large/6deb72a3ly1fvpo85ectqj20oq10wdhr.jpg)
 
 试着运行，发现会提示error LNK2001: 无法解析的外部符号 ”void __cdel“。 这是因数光有头文件，没有lib文件引起的。所以，我们要加入lib文件。这里具体方法是，把需要用到的lib文件拷到项目目录下。一般熟悉OPENCV的同学可能知道，这时的解决方案是，把opencv的lib文件写到vs的配置里。但这样如果换一台电脑运行，会导致程序找不到库文件，会报错。因此，我们使用另一种方法：
 
@@ -164,3 +123,21 @@ int main()
 ![](http://ww1.sinaimg.cn/large/6deb72a3ly1fvpnpim87fj20it06yt8v.jpg)
 
 这是因为运行时，还需要提供gdal的动态链接库。把gdal18.dll拷到项目的Release目录下，程序就可以运行了。
+
+本程序的效果为：输入一个名为 trees.jpg 的图像，然后把这个图像数据写入到 res.tif 文件中。
+
+trees.jpg 图像如下：
+
+![](./pic/trees.jpg)
+
+
+
+### 7. 本周编程作业
+
+完成这个程序，把主要步骤过程、遇到的问题记录下来，保存到小组博客的 reporsitory 中。
+
+使用 markdown 格式，保存为md文件（可以建立一个MD文件，本地用 typora 编辑，然后利用Github Desktop实现服务器端与本地的同步）。
+
+图片可使用新浪微博图床chrome插件（地址：http://www.cnplugins.com/photos/xinlangweibotuchuang/），图床的使用方法请自已摸索，或向老师同学咨询。
+
+有问题欢迎随时联系我~~~(^_^)
