@@ -141,3 +141,12 @@ trees.jpg 图像如下：
 图片可使用新浪微博图床chrome插件（地址：http://www.cnplugins.com/photos/xinlangweibotuchuang/），图床的使用方法请自已摸索，或向老师同学咨询。
 
 有问题欢迎随时联系我~~~(^_^)
+
+
+
+![](http://ww1.sinaimg.cn/large/6deb72a3ly1fvq9mvnemwj20ev07mjrz.jpg)
+
+
+
+
+
