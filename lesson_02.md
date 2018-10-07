@@ -32,7 +32,7 @@
 
 下面为彩色图像的实例：
 
-![](C:\Users\Administrator\Desktop\微信截图_20181007161855.png)
+![](http://ww1.sinaimg.cn/large/6deb72a3ly1fvzupptuchj20qr0e913d.jpg)
 
 ### 4. GDAL对彩色图像的处理
 
