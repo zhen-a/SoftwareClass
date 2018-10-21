@@ -54,7 +54,7 @@ superman.jpg
 
 要求为：把superman.jpg中的超人抠出，加到 space.jpg 的太空背景中。效果如下图所示：
 
-![](http://ww1.sinaimg.cn/large/6deb72a3ly1fwg8eq7v7aj20m70gogzk.jpg)
+![](http://ww1.sinaimg.cn/large/6deb72a3ly1fwg8m4r5aej20hs0dd403.jpg)
 
 
 
