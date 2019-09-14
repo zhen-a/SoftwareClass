@@ -68,6 +68,11 @@
 |17|0106|实践项目分组演示，点评，课程展望，软件工程未来发展概述||
 
 
+## 四、课程博客作业
+
+- **博客园班级地址：** https://edu.cnblogs.com/campus/ouc/SE
+- **第一次博客作业：** https://edu.cnblogs.com/campus/ouc/SE/homework/7588
+
 
 
 
